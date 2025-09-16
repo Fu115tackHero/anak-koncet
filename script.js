@@ -1,56 +1,32 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-  const scanButton = document.getElementById("scan-button");
-  const qrReaderContainer = document.getElementById("qr-reader-container");
-  const closeScannerButton = document.getElementById("close-scanner");
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - PopDrinkGo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <img src="Logo PopDrinkGo.png" alt="PopDrinkGo Logo" class="logo" />
 
-  let html5QrCode = null;
-
-  const startScanner = () => {
-    qrReaderContainer.style.display = "block";
-    scanButton.style.display = "none";
-
-    html5QrCode = new Html5Qrcode("qr-reader");
-
-    html5QrCode
-      .start(
-        { facingMode: "environment" },
-        {
-          fps: 10,
-          qrbox: 250,
-        },
-        (decodedText, decodedResult) => {
-          // Ketika QR code berhasil dipindai
-          console.log(`QR Code berhasil dipindai: ${decodedText}`);
-          stopScanner();
-
-          // Arahkan ke halaman spinwheel.html
-          window.location.href = "spinwheel.html";
-        },
-        (errorMessage) => {
-          // Jangan lakukan apa-apa, ini untuk mencegah log error
-        }
-      )
-      .catch((err) => {
-        alert(`Gagal mengakses kamera: ${err}`);
-        stopScanner();
-      });
-  };
-
-  const stopScanner = () => {
-    if (html5QrCode) {
-      html5QrCode
-        .stop()
-        .then(() => {
-          console.log("QR Code scanner stopped.");
-        })
-        .catch((err) => {
-          console.log("Failed to stop scanner: ", err);
-        });
-      qrReaderContainer.style.display = "none";
-      scanButton.style.display = "block";
-    }
-  };
-
-  scanButton.addEventListener("click", startScanner);
-  closeScannerButton.addEventListener("click", stopScanner);
-});
+      <h2>Login PopDrinkGo</h2>
+      <form action="#" method="POST">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <a href="dashboard.html"
+          ><button type="button" class="btn btn-dark mt-2">login</button></a
+        >
+        <p class="signup-link">
+          Belum punya akun? <a href="#">Daftar di sini</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
