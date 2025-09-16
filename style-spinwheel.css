@@ -102,3 +102,17 @@ h1 {
   font-weight: bold;
   min-height: 2em;
 }
+
+.back-link {
+  display: block;
+  margin-top: 20px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
