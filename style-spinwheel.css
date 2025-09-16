@@ -116,3 +116,11 @@ h1 {
   color: #2980b9;
   text-decoration: underline;
 }
+
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+body.page-loaded {
+  opacity: 1;
+}
