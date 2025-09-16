@@ -39,8 +39,12 @@
       <button id="spin-button">PUTAR!</button>
       <div id="result" class="result"></div>
     </div>
-    <a href="dashboard.html" class="back-link">Kembali ke Dashboard</a>
     <script src="spinwheel.js"></script>
+    <a href="dashboard.html" class="back-link">Kembali ke Dashboard</a>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("page-loaded");
+      });
+    </script>
   </body>
 </html>
-
